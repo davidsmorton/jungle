@@ -5,7 +5,7 @@
   </header>
 <%if enhanced_cart.empty? == true %>  
  <p class=alert-danger > There is nothing in your cart</p> 
-<%= link_to '<button type="button">Continue Shopping</button>'.html_safe, :root %>
+<%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 <% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
