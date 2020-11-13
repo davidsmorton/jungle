@@ -16,9 +16,20 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:index, :new, :create] 
+    resources :sales, only: [:index, :new]
   end
-
+  
+  ## route for about page
   get 'about' => 'about#show'
+  
+  ## routes are for showing users a login form, logging them in, and logging them out.
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  
+  ## routes are for signing up a new user 
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
